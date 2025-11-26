@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人简历 - 胡明远</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e40af', // 深蓝主色调（学术专业感）
+                        secondary: '#475569',
+                        accent: '#0ea5e9', // 亮蓝强调色
+                        light: '#f1f5f9',
+                        dark: '#1e293b'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'card': '0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03)',
+                        'card-hover': '0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .section-divider {
+                @apply w-16 h-1 bg-accent rounded-full my-6;
+            }
+            .card-hover {
+                @apply transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1;
+            }
+            .paper-card {
+                @apply bg-white p-5 rounded-lg shadow-sm border-l-4 border-primary hover:shadow-md transition-shadow duration-300;
+            }
+            .scroll-smooth {
+                scroll-behavior: smooth;
+            }
+            .animate-fade-in {
+                animation: fadeIn 0.5s ease-in-out;
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-dark font-sans scroll-smooth">
+    <!-- 顶部导航栏 -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm transition-all duration-300">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-primary">胡明远 <span class="text-secondary hidden sm:inline">/ 智能半导体技术博士</span></h1>
+            <div class="hidden md:flex space-x-6">
+                <a href="#about" class="text-secondary hover:text-primary transition-colors duration-200">关于我</a>
+                <a href="#education" class="text-secondary hover:text-primary transition-colors duration-200">教育背景</a>
+                <a href="#research" class="text-secondary hover:text-primary transition-colors duration-200">研究方向</a>
+                <a href="#skills" class="text-secondary hover:text-primary transition-colors duration-200">专业技能</a>
+                <a href="#publications" class="text-secondary hover:text-primary transition-colors duration-200">学术成果</a>
+                
+                <a href="#contact" class="text-secondary hover:text-primary transition-colors duration-200">联系方式</a>
+            </div>
+            <button id="menuBtn" class="md:hidden text-secondary text-xl focus:outline-none">
+                <i class="fa fa-bars"></i>
+            </button>
+        </nav>
+        <!-- 移动端菜单 -->
+        <div id="mobileMenu" class="md:hidden hidden bg-white border-t border-gray-100 animate-fade-in">
+            <div class="container mx-auto px-4 py-2 flex flex-col space-y-3">
+                <a href="#about" class="py-2 text-secondary hover:text-primary transition-colors duration-200">关于我</a>
+                <a href="#education" class="py-2 text-secondary hover:text-primary transition-colors duration-200">教育背景</a>
+                <a href="#research" class="py-2 text-secondary hover:text-primary transition-colors duration-200">研究方向</a>
+                <a href="#skills" class="py-2 text-secondary hover:text-primary transition-colors duration-200">专业技能</a>
+                <a href="#publications" class="py-2 text-secondary hover:text-primary transition-colors duration-200">学术成果</a>
+                <a href="#hardware" class="py-2 text-secondary hover:text-primary transition-colors duration-200">硬件设计</a>
+                <a href="#contact" class="py-2 text-secondary hover:text-primary transition-colors duration-200">联系方式</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="bg-gradient-to-r from-primary to-blue-800 text-white py-16 md:py-24">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0 animate-fade-in" style="animation-delay: 0.1s;">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-shadow">胡明远</h2>
+                <p class="text-xl md:text-2xl mb-6">智能半导体技术博士</p>
+                <p class="text-lg opacity-90 mb-8">专注于电机控制、无人机控制、非线性控制算法研究，具备STM32/DSP硬件设计与自动代码生成能力，发表多篇SCI论文</p>
+                <div class="flex space-x-4 flex-wrap">
+                    <a href="#contact" class="bg-white text-primary px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors shadow-md hover:shadow-lg duration-300">联系我</a>
+                    
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center animate-fade-in" style="animation-delay: 0.3s;">
+                <div class="w-50 h-64 overflow-hidden border-4 border-white shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <img src="images/8ba4aeb7192ec32fb49f054a6d83e57e.jpg" alt="胡明远 个人头像" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我 -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-2">关于我</h2>
+            <div class="section-divider mx-auto"></div>
+            <div class="max-w-3xl mx-auto text-lg text-secondary leading-relaxed animate-fade-in">
+                <p class="mb-4">教授，博士。2021年2月，本科毕业于韩国的成均馆大学电子电气工程专业；2025年2月，博士研究生毕业于成均馆大学智能半导体技术专业。被德州市高层次人才库认定为省级领军人才（C类），IEEE Member。自博士阶段起持续从事永磁同步电机、电力电子、四旋翼无人机及机械臂等领域的高性能控制系统研究，作为核心成员参与完成韩国国家科研基金项目（NRF-2019R1A2C1002343）和韩国企业氢燃料电车项目（S-2024-2141-000）。在控制领域发表SCI论文14篇，其中第一作者8篇。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 教育背景 -->
+    <section id="education" class="py-16 bg-light">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-2">教育背景</h2>
+            <div class="section-divider mx-auto"></div>
+            
+            <div class="max-w-4xl mx-auto mt-10 space-y-8">
+                <!-- 博士教育 -->
+                <div class="bg-white p-6 rounded-lg shadow-card card-hover animate-fade-in" style="animation-delay: 0.1s;">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold">成均馆大学 (Sungkyunkwan University)</h3>
+                        <span class="text-accent font-medium">2021年2月 - 2025年2月</span>
+                    </div>
+                    <p class="text-lg font-medium mb-2">智能半导体技术专业 (Department of Smart Fab. Technology)</p>
+                    <p class="text-secondary mb-3">博士学位 | 导师: Professor Kwanho You | 研究室: Applied Optimization Lab</p>
+                    <p class="text-secondary">学校排名: THE 102, QS 123, 软科 151-200</p>
+                </div>
+
+                <!-- 本科教育 -->
+                <div class="bg-white p-6 rounded-lg shadow-card card-hover animate-fade-in" style="animation-delay: 0.2s;">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold">成均馆大学 (Sungkyunkwan University)</h3>
+                        <span class="text-accent font-medium">2017年3月 - 2021年2月</span>
+                    </div>
+                    <p class="text-lg font-medium mb-2">电子电气工程专业 (Electrical and Electronic Engineering)</p>
+                    <p class="text-secondary">学士学位</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 研究方向 -->
+    <section id="research" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-2">研究方向</h2>
+            <div class="section-divider mx-auto"></div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mt-10">
+                <!-- 控制算法 -->
+                <div class="bg-light p-6 rounded-lg shadow-card card-hover animate-fade-in" style="animation-delay: 0.1s;">
+                    <div class="text-primary text-3xl mb-4">
+                        <i class="fa fa-cogs"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">控制算法</h3>
+                    <ul class="space-y-2 text-secondary">
+                        <li class="flex items-center"><i class="fa fa-check text-accent mr-2"></i>滑模控制 (Sliding Mode Control, SMC)</li>
+                        <li class="flex items-center"><i class="fa fa-check text-accent mr-2"></i>自抗扰控制 (Active Disturbance Rejection Control, ADRC)</li>
+                        <li class="flex items-center"><i class="fa fa-check text-accent mr-2"></i>模型预测控制 (Model Predictive Control, MPC)</li>
+                        <li class="flex items-center"><i class="fa fa-check text-accent mr-2"></i>H∞控制 (H∞ Control)</li>
+                    </ul>
+                </div>
+
+                <!-- 控制对象 -->
+                <div class="bg-light p-6 rounded-lg shadow-card card-hover animate-fade-in" style="animation-delay: 0.2s;">
+                    <div class="text-primary text-3xl mb-4">
+                        <i class="fa fa-microchip"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">控制对象</h3>
+                    <ul class="space-y-2 text-secondary">
+                        <li class="flex items-center"><i class="fa fa-check text-accent mr-2"></i>永磁同步电机 (Permanent Magnet Synchronous Motor, PMSM)</li>
+                        <li class="flex items-center"><i class="fa fa-check text-accent mr-2"></i>四旋翼无人机 (Quadrotor UAV)</li>
+                        <li class="flex items-center"><i class="fa fa-check text-accent mr-2"></i>DC-DC 转换器</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 专业技能 -->
+    <section id="skills" class="py-16 bg-light">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-2">专业技能</h2>
+            <div class="section-divider mx-auto"></div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10 max-w-5xl mx-auto">
+                <!-- 编程与仿真 -->
+                <div class="bg-white p-6 rounded-lg shadow-card card-hover animate-fade-in" style="animation-delay: 0.1s;">
+                    <div class="text-primary text-3xl mb-4">
+                        <i class="fa fa-code"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">编程与仿真</h3>
+                    <ul class="space-y-2 text-secondary">
+                        <li class="flex items-center"><i class="fa fa-check text-accent mr-2"></i>Matlab/Simulink</li>
+                        <li class="flex items-center"><i class="fa fa-check text-accent mr-2"></i>C 语言</li>
+                        <li class="flex items-center"><i class="fa fa-check text-accent mr-2"></i>C++ 语言</li>
+                        <li class="flex items-center"><i class="fa fa-check text-accent mr-2"></i>Shell 脚本</li>
+                        <li class="flex items-center"><i class="fa fa-check text-accent mr-2"></i>Linux 系统</li>
+                    </ul>
+                </div>
+
+                <!-- 硬件开发 -->
+                <div class="bg-white p-6 rounded-lg shadow-card card-hover animate-fade-in" style="animation-delay: 0.2s;">
+                    <div class="text-primary text-3xl mb-4">
+                        <i class="fa fa-microchip"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">硬件开发</h3>
+                    <ul class="space-y-2 text-secondary">
+                        <li class="flex items-center"><i class="fa fa-check text-accent mr-2"></i>STM32 开发</li>
+                        <li class="flex items-center"><i class="fa fa-check text-accent mr-2"></i>DSP28377 开发</li>
+                        <li class="flex items-center"><i class="fa fa-check text-accent mr-2"></i>电路设计</li>
+                        <li class="flex items-center"><i class="fa fa-check text-accent mr-2"></i>PCB 绘制</li>
+                        <li class="flex items-center"><i class="fa fa-check text-accent mr-2"></i>Altium Designer/Candace</li>
+                    </ul>
+                </div>
+
+                <!-- 工程能力 -->
+                <div class="bg-white p-6 rounded-lg shadow-card card-hover animate-fade-in" style="animation-delay: 0.3s;">
+                    <div class="text-primary text-3xl mb-4">
+                        <i class="fa fa-cogs"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">工程能力</h3>
+                    <ul class="space-y-2 text-secondary">
+                        <li class="flex items-center"><i class="fa fa-check text-accent mr-2"></i>自动代码生成</li>
+                        <li class="flex items-center"><i class="fa fa-check text-accent mr-2"></i>基于模型的设计 (MBD)</li>
+                       </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 学术成果 -->
+    <section id="publications" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-2">学术成果（第一作者SCI论文）</h2>
+            <div class="section-divider mx-auto"></div>
+            
+            <div class="max-w-4xl mx-auto mt-10 space-y-4">
+                <!-- 2024年论文 -->
+                <div class="bg-light p-4 rounded-lg animate-fade-in" style="animation-delay: 0.1s;">
+                    <h3 class="text-xl font-bold text-primary mb-3">2024年</h3>
+                    <div class="space-y-3">
+                        <div class="paper-card">
+                            <p>1. M. Hu, H Ahn, J. Park, and K You ”Novel rapid control prototyping for permanent-magnet synchronous motor via model-based design and STM32 chip”, <span class="font-medium">International Journal of Advanced Manufacturing Technology</span>, 2024, DOI: 10.1007/s00170-024-14579-4, (中科院3区)</p>
+                        </div>
+                        <div class="paper-card">
+                            <p>2. M. Hu, H. Ahn, J. Park, and K. You, ”Speed-sensorless control for SPMSM via novel exponential super-twisting ADRC”, <span class="font-medium">AsianJ.Control</span>, pp.1–20, 2024, DOI: 10.1002/asjc.3501, (中科院4区)</p>
+                        </div>
+                        <div class="paper-card">
+                            <p>3. M. Hu, H. Ahn, J. Park, and K. You, ”A modified exponential reaching law for sliding mode control and its applications”, <span class="font-medium">Int J Robust Nonlinear Control</span>, pp. 1-14, 2024, DOI: 10.1002/rnc.7492, (中科院3区)</p>
+                        </div>
+                        <div class="paper-card">
+                            <p>4. M. Hu, H. Ahn, H. Kang, Y. Chung, and K. You, ”Rapid Experimental Protocol for PMSM via MBD: Modeling, Simulation, and Experiment” <span class="font-medium">Computers</span>, vol. 13, no. 3, p. 73, 2024, DOI:10.3390/computers13030073, (ESCI)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2023年论文 -->
+                <div class="bg-light p-4 rounded-lg animate-fade-in" style="animation-delay: 0.2s;">
+                    <h3 class="text-xl font-bold text-primary mb-3">2023年</h3>
+                    <div class="space-y-3">
+                        <div class="paper-card">
+                            <p>1. M. Hu, H. Ahn and K. You, ”Speed Tracking of SPMSM via Super-Twisting Logarithmic Fast Terminal Sliding-Mode Control,” <span class="font-medium">IEEE Access</span>, vol.11, pp.91904-91912, 2023, DOI: 10.1109/access.2023.3308156, (中科院3区)</p>
+                        </div>
+                        <div class="paper-card">
+                            <p>2. M. Hu, H. Ahn, Y. Chung, and K. You, “Sensorless Speed Control for SPMSM Using a Nonlinear Observer and Enhanced Super-Twisting ADRC,” <span class="font-medium">Mathematics</span>, vol. 11, no. 15, p. 3382, 2023, DOI:10.3390/math11153382, (中科院3区)</p>
+                        </div>
+                        <div class="paper-card">
+                            <p>3. M. Hu, H. Ahn, and K. You, ”Finite-Time Rapid Global Sliding-Mode Control for Quadrotor Trajectory Tracking,” <span class="font-medium">IEEE Access</span>, vol. 11, pp. 22364-22375, 2023, DOI: 10.1109/access.2023.3252539, (中科院3区)</p>
+                        </div>
+                        <div class="paper-card">
+                            <p>4. M. Hu, H. Ahn, Y. Chung, and K. You, “Speed Regulation for PMSM with Super-Twisting Sliding-Mode Controller via Disturbance Observer,” <span class="font-medium">Mathematics</span>, vol. 11, no. 7, p. 1618, 2023, DOI: 10.3390/math11071618, (中科院3区)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2022年论文 -->
+                <div class="bg-light p-4 rounded-lg animate-fade-in" style="animation-delay: 0.3s;">
+                    <h3 class="text-xl font-bold text-primary mb-3">2022年</h3>
+                    <div class="space-y-3">
+                        <div class="paper-card">
+                            <p>1. M. Hu, K. Lee, H. Ahn, A. Choi, H. Kim, and K. You, “Stabilization and Tracking of a Quadrotor Using Modified Sigmoid Sliding Mode Control,” <span class="font-medium">Sensors</span>, vol. 22, no. 10, p. 3618, 2022, DOI: 10.3390/s22103618, (中科院3区)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 硬件设计展示 -->
+   
+
+    <!-- 联系方式 -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-2">联系方式</h2>
+            <div class="section-divider mx-auto"></div>
+            
+            <div class="max-w-4xl mx-auto mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="animate-fade-in" style="animation-delay: 0.1s;">
+                    <h3 class="text-xl font-bold mb-6">联系信息</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center hover:bg-light p-2 rounded-lg transition-colors duration-200">
+                            <div class="bg-light w-12 h-12 rounded-full flex items-center justify-center text-primary text-xl mr-4">
+                                <i class="fa fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="text-secondary text-sm">邮箱</p>
+                                <p class="font-medium">1311897760@qq.com</p>
+                            </div>
+                        </div>
+                       
+                        <div class="flex items-center hover:bg-light p-2 rounded-lg transition-colors duration-200">
+                            <div class="bg-light w-12 h-12 rounded-full flex items-center justify-center text-primary text-xl mr-4">
+                                <i class="fa fa-id-card"></i>
+                            </div>
+                            <div>
+                                <p class="text-secondary text-sm">Orcid</p>
+                                <p class="font-medium">0000-0003-1052-8952</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center hover:bg-light p-2 rounded-lg transition-colors duration-200">
+                            <div class="bg-light w-12 h-12 rounded-full flex items-center justify-center text-primary text-xl mr-4">
+                                <i class="fa fa-map-marker"></i>
+                            </div>
+                            <div>
+                                <p class="text-secondary text-sm">籍贯</p>
+                                <p class="font-medium">山东省济宁市金乡县</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center hover:bg-light p-2 rounded-lg transition-colors duration-200">
+                           
+                            <div>
+                                
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="animate-fade-in" style="animation-delay: 0.2s;">
+                   
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="mb-4 md:mb-0">&copy; 2024 胡明远 - 智能半导体技术博士. 保留所有权利.</p>
+                <div class="flex space-x-4">
+                    <a href="#about" class="text-gray-300 hover:text-white transition-colors duration-200">关于我</a>
+                    <a href="#research" class="text-gray-300 hover:text-white transition-colors duration-200">研究方向</a>
+                    <a href="#publications" class="text-gray-300 hover:text-white transition-colors duration-200">学术成果</a>
+                    <a href="#contact" class="text-gray-300 hover:text-white transition-colors duration-200">联系方式</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 移动端菜单切换
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            const icon = menuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-md');
+                header.classList.add('py-2');
+                header.classList.remove('py-4');
+            } else {
+                header.classList.remove('shadow-md');
+                header.classList.add('py-4');
+                header.classList.remove('py-2');
+            }
+        });
+
+        // 滚动动画
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section > div > div:not(.animate-fade-in)').forEach(el => {
+            observer.observe(el);
+        });
+
+        // 关闭移动端菜单（点击导航链接后）
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                const icon = menuBtn.querySelector('i');
+                icon.classList.add('fa-bars');
+                icon.classList.remove('fa-times');
+            });
+        });
+    </script>
+</body>
+</html>
